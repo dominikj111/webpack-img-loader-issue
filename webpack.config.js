@@ -1,5 +1,4 @@
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, options) => {
 
@@ -18,7 +17,7 @@ module.exports = (env, options) => {
           test: /\.png$/,
           loader: require.resolve('url-loader'),
           options: {
-              limit: false,
+              limit: 100,
               name: 'static/assets1/images/[name].[hash:8].[ext]'
           }
         },
@@ -31,23 +30,19 @@ module.exports = (env, options) => {
           }
         },
         {
+          test: /\.png$/,
+          loader: require.resolve('url-loader'),
+          options: {
+              limit: 100,
+              name: 'static/assets3/images/[name].[hash:8].[ext]'
+          }
+        },
+        {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: "babel-loader"
-        },
-        {
-          test: /\.css$/,
-          loaders: ['style-loader', 'css-loader']
         }
       ]
-    },
-    plugins: [
-      new htmlWebpackPlugin({
-        title: 'DEV Template',
-        template: 'index-template-dev.ejs',
-        hash: false,
-        inject: false
-      })
-    ]
+    }
   }
 }

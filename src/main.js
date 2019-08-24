@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import CustomButtonsTest from './components/pages/CustomButtonsTest'
+import imagetest from './assets/images/cat.png'
+
+const Foo = () => <div>Test</div>
 
 ReactDOM.render(
-	<CustomButtonsTest />,
+	<Foo />,
 	document.getElementById('root')
 )
